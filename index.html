@@ -1,2 +1,76 @@
+
 <!DOCTYPE html>
-<html><head><title>Branding Engine</title></head><body><h1>Welcome to the Branding Engine</h1></body></html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modular Branding Engine App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        #preview {
+            margin-top: 30px;
+            height: 100px;
+            line-height: 100px;
+            background-color: #e0e0e0;
+            border: 2px dashed #ccc;
+            border-radius: 6px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 Modular Branding Engine</h1>
+        <p>Select a branding set from the menu below:</p>
+        <select id="brandingSelect" onchange="updatePreview()">
+            <option value="">-- Choose Branding --</option>
+            <option value="From Dirt to Decommissioning™">From Dirt to Decommissioning™</option>
+            <option value="Optimize Your Business AI™">Optimize Your Business AI™</option>
+            <option value="AI Legal Prep Services™">AI Legal Prep Services™</option>
+        </select>
+        <div id="preview">[ Brand Preview ]</div>
+        <button onclick="applyBranding()">Apply Branding</button>
+        <button onclick="resetPreview()">Reset</button>
+    </div>
+
+    <script>
+        function updatePreview() {
+            const selected = document.getElementById("brandingSelect").value;
+            document.getElementById("preview").textContent = selected ? selected : "[ Brand Preview ]";
+        }
+
+        function applyBranding() {
+            const brand = document.getElementById("brandingSelect").value;
+            if (brand) {
+                alert("Branding applied: " + brand);
+            } else {
+                alert("Please select a branding option first.");
+            }
+        }
+
+        function resetPreview() {
+            document.getElementById("brandingSelect").value = "";
+            document.getElementById("preview").textContent = "[ Brand Preview ]";
+        }
+    </script>
+</body>
+</html>
